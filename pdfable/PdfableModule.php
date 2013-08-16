@@ -13,5 +13,5 @@ class PdfableModule extends CWebModule
     /**
      * @var string path to your wkhtmltopdf binary. Defaults to /usr/bin/wkhtmltopdf.
      */
-    public $bin = '/usr/bin/wkhtmltopdf';
+    public $bin = '/usr/bin/phantomjs';
 }

@@ -6,8 +6,8 @@ class DemoController extends Controller
     public function behaviors()
     {
         return array(
-            'pdfable'=>array(
-                'class' => 'ext.pdfable.Pdfable',
+            'phantompdfable'=>array(
+                'class' => 'ext.phantompdfable.Pdfable',
 
                 // Global default options for wkhtmltopdf
                 'pdfOptions' => array(
@@ -18,7 +18,7 @@ class DemoController extends Controller
                 // Default page options
                 'pdfPageOptions' => array(
                     // We supply the PDF CSS file manually here
-                    'user-style-sheet'  => $this->cssFile,
+                    //'user-style-sheet'  => $this->cssFile,
                 ),
 
                 // Use this to disable any hardcoded defaults
@@ -28,6 +28,12 @@ class DemoController extends Controller
         );
     }
 
+    
+ public function actionUrl2PdfDemo()
+    {
+        // Render this view as PDF and display inline in the browser:
+        $this->renderUrl2Pdf('http://www.google.com');
+    }
     /**
      * Render index page
      */
@@ -102,6 +108,6 @@ class DemoController extends Controller
      */
     public function getCssFile()
     {
-        return Yii::getPathOfAlias('ext.pdfable.pdfable.assets.css.pdf').'.css';
+        return Yii::getPathOfAlias('ext.phantompdfable.pdfable.assets.css.pdf').'.css';
     }
 }
